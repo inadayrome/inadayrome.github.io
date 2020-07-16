@@ -1,12 +1,12 @@
-import { Link } from 'gatsby'
-import React from 'react'
+import { Link } from 'gatsby';
+import React from 'react';
 
 interface HeaderProps {
-  siteTitle: string
+  siteTitle: string;
 }
 
 const Header: React.FC<HeaderProps> = props => {
-  const { siteTitle } = props
+  const { siteTitle } = props;
 
   return (
     <header
@@ -37,11 +37,11 @@ const Header: React.FC<HeaderProps> = props => {
         </h5>
       </div>
     </header>
-  )
-}
+  );
+};
 
 Header.defaultProps = {
   siteTitle: '',
-}
+};
 
-export default Header
+export default Header;
