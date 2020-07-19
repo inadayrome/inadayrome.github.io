@@ -5,12 +5,17 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import Header from './header';
 import './layout.scss';
-import { makeStyles, createStyles } from '@material-ui/core/styles';
+import {
+  makeStyles,
+  createStyles,
+  createMuiTheme,
+} from '@material-ui/core/styles';
+import { LinkButtons } from './commonComponents';
 
 interface SiteTitleQuery {
   site: {
@@ -27,8 +32,27 @@ const useStyles = makeStyles(() =>
       maxWidth: 960,
       padding: '0 1.0875rem 1.45rem',
     },
+    menuItems: {
+      '& > h6, h5': {
+        color: '#777',
+        textDecoration: 'none',
+        fontWeight: 'normal',
+      },
+    },
   })
 );
+
+const theme = createMuiTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 960,
+      lg: 1280,
+      xl: 1920,
+    },
+  },
+});
 
 const Layout: React.FC<{
   children: JSX.Element | string | (JSX.Element | string)[];
@@ -45,15 +69,37 @@ const Layout: React.FC<{
     }
   `);
 
+  const [showMenu, setShowMenu] = useState(false);
+  const Menu = () => (
+    <div className={classes.menuItems}>
+      <h5>MENU</h5>
+      <h6>Ideas</h6>
+      <h6>About</h6>
+      <h5>LINKS</h5>
+      {LinkButtons()}
+    </div>
+  );
+
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <Header
+        siteTitle={data.site.siteMetadata.title}
+        theme={theme}
+        showMenu={showMenu}
+        setShowMenu={setShowMenu}
+      />
       <div className={classes.mainContainer}>
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with &#160;
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
+        {showMenu ? (
+          Menu()
+        ) : (
+          <>
+            <main>{children}</main>
+            <footer>
+              © {new Date().getFullYear()}, Built with &#160;
+              <a href="https://www.gatsbyjs.org">Gatsby</a>
+            </footer>
+          </>
+        )}
       </div>
     </>
   );
