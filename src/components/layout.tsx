@@ -10,12 +10,9 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 import Header from './header';
 import './layout.scss';
-import {
-  makeStyles,
-  createStyles,
-  createMuiTheme,
-} from '@material-ui/core/styles';
+import { makeStyles, createStyles } from '@material-ui/core/styles';
 import { LinkButtons } from './commonComponents';
+import { ThemeContext, theme } from '../constants';
 
 interface SiteTitleQuery {
   site: {
@@ -42,20 +39,8 @@ const useStyles = makeStyles(() =>
   })
 );
 
-const theme = createMuiTheme({
-  breakpoints: {
-    values: {
-      xs: 0,
-      sm: 600,
-      md: 960,
-      lg: 1280,
-      xl: 1920,
-    },
-  },
-});
-
 const Layout: React.FC<{
-  children: JSX.Element | string | (JSX.Element | string)[];
+  children: JSX.Element | string | (JSX.Element | string | boolean)[];
 }> = props => {
   const { children } = props;
   const classes = useStyles();
@@ -81,10 +66,9 @@ const Layout: React.FC<{
   );
 
   return (
-    <>
+    <ThemeContext.Provider value={theme}>
       <Header
         siteTitle={data.site.siteMetadata.title}
-        theme={theme}
         showMenu={showMenu}
         setShowMenu={setShowMenu}
       />
@@ -92,16 +76,17 @@ const Layout: React.FC<{
         {showMenu ? (
           Menu()
         ) : (
-          <>
-            <main>{children}</main>
-            <footer>
-              © {new Date().getFullYear()}, Built with &#160;
-              <a href="https://www.gatsbyjs.org">Gatsby</a>
-            </footer>
-          </>
+          <main>{children}</main>
+          // <>
+          //   <main>{children}</main>
+          //   <footer>
+          //     © {new Date().getFullYear()}, Built with &#160;
+          //     <a href="https://www.gatsbyjs.org">Gatsby</a>
+          //   </footer>
+          // </>
         )}
       </div>
-    </>
+    </ThemeContext.Provider>
   );
 };
 

@@ -26,8 +26,11 @@ Ideas for data visualization:
 
 2. Monte Carlo simulation of random index (SPY? Calculate using Python Backend or Others?)
 
+3. Graph of Vertices and Edges, find shortest path between 2 nodes and display/highlight on d3
+
 Page originally built through gatsby-default-starter
 
 To run this Project:
+
 - run 'npm install' to install all dependencies
 - run 'gatsby develop' to start development server

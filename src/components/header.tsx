@@ -1,14 +1,14 @@
 import { Link } from 'gatsby';
-import React from 'react';
+import React, { useContext } from 'react';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
 import { useMediaQuery, Theme, IconButton } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import { LinkButtons } from './commonComponents';
+import { ThemeContext } from '../constants';
 
 interface HeaderProps {
   siteTitle: string;
-  theme: Theme;
   showMenu: boolean;
   setShowMenu: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -19,14 +19,17 @@ const useStyles = makeStyles((theme: Theme) =>
       position: 'sticky',
       background: 'white',
       top: 0,
-      marginBottom: '1.45rem',
+      [theme.breakpoints.up('md')]: {
+        marginBottom: '1.45rem',
+      },
     },
     headerDiv: {
       margin: '0 auto',
       maxWidth: '960px',
-      padding: '1.45rem 1.0875rem',
+      padding: '0.5rem 1.0875rem',
       [theme.breakpoints.up('md')]: {
         borderBottom: '1px solid #eee',
+        padding: '1.45rem 1.0875rem',
       },
       display: 'grid',
       gridTemplateColumns: '1fr auto',
@@ -53,8 +56,9 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const Header: React.FC<HeaderProps> = props => {
-  const { siteTitle, theme, showMenu, setShowMenu } = props;
+  const { siteTitle, showMenu, setShowMenu } = props;
   const classes = useStyles();
+  const theme = useContext(ThemeContext);
 
   const mobileView = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -73,7 +77,9 @@ const Header: React.FC<HeaderProps> = props => {
           </Link>
           {!mobileView && (
             <div className={classes.contentSelect}>
-              <span className={classes.headerText}>Ideas</span>
+              <Link to="/projects" className={classes.headerText}>
+                Ideas
+              </Link>
               <span className={classes.headerText}>About</span>
             </div>
           )}
