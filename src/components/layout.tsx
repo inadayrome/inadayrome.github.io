@@ -12,7 +12,7 @@ import Header from './header';
 import './layout.scss';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
 import { LinkButtons } from './commonComponents';
-import { ThemeContext, theme } from '../constants';
+import { ThemeContext, theme, lightTheme } from '../constants';
 
 interface SiteTitleQuery {
   site: {
@@ -31,7 +31,7 @@ const useStyles = makeStyles(() =>
     },
     menuItems: {
       '& > h6, h5': {
-        color: '#777',
+        color: lightTheme.headerText,
         textDecoration: 'none',
         fontWeight: 'normal',
       },

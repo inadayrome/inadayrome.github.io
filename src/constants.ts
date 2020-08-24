@@ -20,4 +20,13 @@ export const theme = createMuiTheme({
 
 export const ThemeContext = React.createContext(theme);
 
+export const lightTheme = {
+  mainText: '#000',
+  headerText: '#777',
+  secondaryText: '#3a3a3a',
+  mainBackground: '#fff',
+  secondaryBackground: '#e6e6e6',
+  tertiaryBackground: '#dcdcdc',
+};
+
 export const ProjectList = [{ image: CoronaD3Image, project: CoronaD3 }];

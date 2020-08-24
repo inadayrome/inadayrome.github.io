@@ -5,7 +5,7 @@ import { useMediaQuery, Theme, IconButton } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import { LinkButtons } from './commonComponents';
-import { ThemeContext } from '../constants';
+import { ThemeContext, lightTheme } from '../constants';
 
 interface HeaderProps {
   siteTitle: string;
@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       position: 'sticky',
-      background: 'white',
+      background: lightTheme.mainBackground,
       top: 0,
       [theme.breakpoints.up('md')]: {
         marginBottom: '1.45rem',
@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme: Theme) =>
       gridTemplateColumns: 'auto auto',
     },
     headerText: {
-      color: '#777',
+      color: lightTheme.headerText,
       textDecoration: 'none',
       fontWeight: 'initial',
     },

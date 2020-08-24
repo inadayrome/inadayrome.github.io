@@ -1,15 +1,22 @@
 import React, { useState } from 'react';
-// import { PageProps, Link, graphql } from 'gatsby';
 
 import Layout from '../components/layout';
 import { makeStyles, createStyles, Modal } from '@material-ui/core';
-import { ProjectList } from '../constants';
+import { ProjectList, lightTheme } from '../constants';
 
 const useStyles = makeStyles(() =>
   createStyles({
     container: {
       display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 500px))',
+      gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 450px))',
+      gap: '10px',
+      justifyContent: 'space-around',
+    },
+    imageContainer: {
+      cursor: 'pointer',
+      border: `1px solid ${lightTheme.secondaryBackground}`,
+      boxShadow: `3px 3px 3px 3px ${lightTheme.tertiaryBackground}`,
+      borderRadius: '7px',
     },
   })
 );
@@ -27,17 +34,31 @@ const Projects = () => {
 
   const showModal = projectIndex < projectList.length && projectIndex >= 0;
 
+  const modalProject = () => {
+    const item = projectList[projectIndex];
+    if (!item?.project) return null;
+
+    return item.project();
+  };
+
   return (
     <Layout>
       <h3 style={{ fontWeight: 'normal' }}>Portfolio</h3>
       <div className={classes.container}>
         {projectList.map<JSX.Element>((project, index) => (
-          <React.Fragment key={index}>{project.image()}</React.Fragment>
+          <div
+            className={classes.imageContainer}
+            key={index}
+            title="View Project"
+            onClick={() => setProjectIndex(index)}
+          >
+            {project.image()}
+          </div>
         ))}
       </div>
-      {showModal && (
+      {showModal && !!modalProject() && (
         <Modal open={showModal} onClose={() => setProjectIndex(-1)}>
-          {projectList[projectIndex] && projectList[projectIndex].project()}
+          {modalProject() as JSX.Element}
         </Modal>
       )}
     </Layout>

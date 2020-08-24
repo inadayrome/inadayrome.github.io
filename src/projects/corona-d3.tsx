@@ -9,7 +9,7 @@ export const CoronaD3Image = () => {
     query {
       placeholderImage: file(relativePath: { eq: "corona-d3.png" }) {
         childImageSharp {
-          fluid(maxWidth: 300) {
+          fluid(maxWidth: 450) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -26,7 +26,12 @@ const CoronaD3 = () => {
     codeURL: '',
     demoURL: '',
     previewImage: CoronaD3Image(),
-    description: '',
+    description: `On this project, I was responsible for the frontend implementation.\
+The goal was to establish and visualize relations between potential Covid-related cases.
+
+The initial implementation consisted of a web dashboard, done in Angular.\
+Visualized links (as edges) between location/case nodes through force-directed graph in D3.
+    `,
   };
 
   return <ProjectDetails project={projectDetails} />;
