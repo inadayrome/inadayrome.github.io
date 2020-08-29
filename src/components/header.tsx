@@ -78,9 +78,11 @@ const Header: React.FC<HeaderProps> = props => {
           {!mobileView && (
             <div className={classes.contentSelect}>
               <Link to="/projects" className={classes.headerText}>
-                Ideas
+                Projects
               </Link>
-              <span className={classes.headerText}>About</span>
+              <Link to="/" className={classes.headerText}>
+                <span className={classes.headerText}>About</span>
+              </Link>
             </div>
           )}
         </h5>

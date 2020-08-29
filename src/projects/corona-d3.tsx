@@ -25,7 +25,7 @@ const CoronaD3 = () => {
     title: 'Corona-d3',
     codeURL: '',
     demoURL: '',
-    previewImage: CoronaD3Image(),
+    previewImage: CoronaD3Image,
     description: `On this project, I was responsible for the frontend implementation.\
 The goal was to establish and visualize relations between potential Covid-related cases.
 

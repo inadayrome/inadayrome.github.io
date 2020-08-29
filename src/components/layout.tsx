@@ -6,7 +6,7 @@
  */
 
 import React, { useState } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql, Link } from 'gatsby';
 
 import Header from './header';
 import './layout.scss';
@@ -30,10 +30,16 @@ const useStyles = makeStyles(() =>
       padding: '0 1.0875rem 1.45rem',
     },
     menuItems: {
-      '& > h6, h5': {
+      '& a, h6, h5': {
         color: lightTheme.headerText,
         textDecoration: 'none',
         fontWeight: 'normal',
+      },
+      '& h6': {
+        marginBottom: '0.5em',
+      },
+      '& h5, h6:last-of-type': {
+        marginBottom: '1em',
       },
     },
   })
@@ -58,8 +64,12 @@ const Layout: React.FC<{
   const Menu = () => (
     <div className={classes.menuItems}>
       <h5>MENU</h5>
-      <h6>Ideas</h6>
-      <h6>About</h6>
+      <Link to="/projects">
+        <h6>Projects</h6>
+      </Link>
+      <Link to="/">
+        <h6>About</h6>
+      </Link>
       <h5>LINKS</h5>
       {LinkButtons()}
     </div>

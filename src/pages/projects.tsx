@@ -34,7 +34,7 @@ const Projects = () => {
 
   const showModal = projectIndex < projectList.length && projectIndex >= 0;
 
-  const modalProject = () => {
+  const ModalProject = () => {
     const item = projectList[projectIndex];
     if (!item?.project) return null;
 
@@ -56,9 +56,10 @@ const Projects = () => {
           </div>
         ))}
       </div>
-      {showModal && !!modalProject() && (
+      {showModal && !!ModalProject() && (
         <Modal open={showModal} onClose={() => setProjectIndex(-1)}>
-          {modalProject() as JSX.Element}
+          {/* {modalProject() as JSX.Element} */}
+          <ModalProject />
         </Modal>
       )}
     </Layout>

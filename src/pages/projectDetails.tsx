@@ -65,7 +65,7 @@ const ProjectDetails: React.FC<{ project: Project }> = props => {
 
   return (
     <div className={classes.mainContainer}>
-      {previewImage}
+      {previewImage()}
       <div className={classes.detailsContainer}>
         <h3>{title}</h3>
         <h6>About</h6>

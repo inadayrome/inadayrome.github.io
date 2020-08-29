@@ -7,7 +7,7 @@ const useStyles = makeStyles(() =>
   createStyles({
     container: {
       textAlign: 'center',
-      marginTop: '5em',
+      marginTop: '20vh',
     },
     aboutText: {
       fontWeight: 'normal',
