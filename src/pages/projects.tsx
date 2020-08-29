@@ -58,8 +58,7 @@ const Projects = () => {
       </div>
       {showModal && !!ModalProject() && (
         <Modal open={showModal} onClose={() => setProjectIndex(-1)}>
-          {/* {modalProject() as JSX.Element} */}
-          <ModalProject />
+          {ModalProject() as JSX.Element}
         </Modal>
       )}
     </Layout>
