@@ -41,6 +41,7 @@
     "eslint-plugin-react": "^7.20.3",
     "gatsby-plugin-eslint": "^2.0.8",
     "gh-pages": "^3.2.3",
+    "husky": "^7.0.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.4.2",
     "prettier": "2.0.5",
@@ -60,7 +61,8 @@
     "test": "jest",
     "test-changes": "jest -- -u",
     "deploy": "gatsby build gh-pages -d public -b master",
-    "lint": "eslint --ignore-path .gitignore ."
+    "lint": "eslint --ignore-path .gitignore .",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
