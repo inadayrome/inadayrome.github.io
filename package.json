@@ -60,7 +60,7 @@
     "clean": "gatsby clean",
     "test": "jest",
     "test-changes": "jest -- -u",
-    "deploy": "gatsby build gh-pages -d public -b master",
+    "deploy": "gatsby build && gh-pages -d public -b master",
     "lint": "eslint --ignore-path .gitignore .",
     "prepare": "husky install"
   },
