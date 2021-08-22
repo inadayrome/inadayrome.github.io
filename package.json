@@ -58,7 +58,9 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "jest",
-    "test-changes": "jest -- -u"
+    "test-changes": "jest -- -u",
+    "deploy": "gatsby build gh-pages -d public -b master",
+    "lint": "eslint --ignore-path .gitignore ."
   },
   "repository": {
     "type": "git",
