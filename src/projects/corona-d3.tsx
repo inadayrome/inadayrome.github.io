@@ -2,7 +2,7 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import { Project } from '../models/Project.interface';
-import ProjectDetails from '../pages/projectDetails';
+import ProjectDetails from '../components/projectDetails';
 
 export const CoronaD3Image = () => {
   const data = useStaticQuery(graphql`
