@@ -43,7 +43,7 @@ const Projects = () => {
 
   return (
     <Layout>
-      <h3 style={{ fontWeight: 'normal' }}>Portfolio</h3>
+      <h4 style={{ fontWeight: 'normal' }}>Portfolio</h4>
       <div className={classes.container}>
         {projectList.map<JSX.Element>((project, index) => (
           <div

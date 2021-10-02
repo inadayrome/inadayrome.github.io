@@ -25,13 +25,13 @@ const About = () => {
 
   return (
     <div className={classes.container}>
-      <h1 className={classes.aboutText}>Wen Jun Lee</h1>
-      <h3 className={classes.aboutText}>
+      <h2 className={classes.aboutText}>Wen Jun Lee</h2>
+      <h4 className={classes.aboutText}>
         Software Engineer based in Singapore
-      </h3>
-      <h3 className={classes.aboutText}>
+      </h4>
+      <h4 className={classes.aboutText}>
         Full Stack Development &#183; Web Data Visualization
-      </h3>
+      </h4>
       <Link
         to="/projects"
         className={`${classes.projectLink} ${classes.aboutText}`}
