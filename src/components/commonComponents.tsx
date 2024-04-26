@@ -1,7 +1,6 @@
 import React from 'react';
-import { IconButton } from '@material-ui/core';
-import GitHubIcon from '@material-ui/icons/GitHub';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import IconButton from '@mui/material/IconButton';
+import { GitHub as GitHubIcon, LinkedIn as LinkedInIcon } from '@mui/icons-material';
 import { LINKEDIN_URL, GITHUB_URL } from '../constants';
 
 export const LinkButtons = () => (

@@ -42,6 +42,7 @@ const SEO: React.FC<SEOProps> = props => {
 
   const metaDescription = description || site.siteMetadata.description;
 
+  // TODO: deprecate react-helmet in favor of gatsby-head https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
   return (
     <Helmet
       htmlAttributes={{

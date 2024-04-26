@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage as Img } from 'gatsby-plugin-image';
 import { Project } from '../models/Project.interface';
 import ProjectDetails from '../components/projectDetails';
 
@@ -9,15 +9,13 @@ export const CoronaD3Image = () => {
     query {
       placeholderImage: file(relativePath: { eq: "corona-d3.png" }) {
         childImageSharp {
-          fluid(maxWidth: 450) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(width: 450)
         }
       }
     }
   `);
 
-  return <Img fluid={data.placeholderImage.childImageSharp.fluid} />;
+  return <Img alt="" image={data.placeholderImage.childImageSharp.gatsbyImageData} />;
 };
 
 const CoronaD3 = () => {

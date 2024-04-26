@@ -1,4 +1,4 @@
-import { createMuiTheme } from '@material-ui/core';
+import { createTheme } from '@mui/material/styles';
 import React from 'react';
 import CoronaD3, { CoronaD3Image } from './projects/corona-d3';
 
@@ -6,7 +6,7 @@ export const GITHUB_URL = 'https://github.com/inadayrome/inadayrome.github.io';
 
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/wenjunlee1994';
 
-export const theme = createMuiTheme({
+export const theme = createTheme({
   breakpoints: {
     values: {
       xs: 0,
