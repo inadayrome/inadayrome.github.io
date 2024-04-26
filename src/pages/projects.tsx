@@ -1,31 +1,14 @@
 import React, { useState } from 'react';
 
 import Layout from '../components/layout';
-import { makeStyles, createStyles, Modal } from '@material-ui/core';
-import { ProjectList, lightTheme } from '../constants';
+import Modal from '@mui/material/Modal';
+import { ProjectList } from '../constants';
 
-const useStyles = makeStyles(() =>
-  createStyles({
-    container: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 450px))',
-      gap: '10px',
-      justifyContent: 'space-around',
-    },
-    imageContainer: {
-      cursor: 'pointer',
-      border: `1px solid ${lightTheme.secondaryBackground}`,
-      boxShadow: `3px 3px 3px 3px ${lightTheme.tertiaryBackground}`,
-      borderRadius: '7px',
-    },
-  })
-);
 
 /**
  * This page contains lists of projects developed
  */
 const Projects = () => {
-  const classes = useStyles();
   /**
    * Index of project (in ProjectList) opened in modal
    */
@@ -44,10 +27,10 @@ const Projects = () => {
   return (
     <Layout>
       <h4 style={{ fontWeight: 'normal' }}>Portfolio</h4>
-      <div className={classes.container}>
+      <div className="pages-projects-container">
         {projectList.map<JSX.Element>((project, index) => (
           <div
-            className={classes.imageContainer}
+            className="pages-projects-image-container"
             key={index}
             title="View Project"
             onClick={() => setProjectIndex(index)}

@@ -1,3 +1,5 @@
+@import 'variables';
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -619,4 +621,198 @@ pre tt:after {
   html {
     font-size: 100%;
   }
+}
+
+// Project-defined css
+// mixins for theme layout
+@mixin sm {
+  @media (min-width: #{$screen-sm}) {
+    @content;
+  }
+}
+
+// Medium devices
+@mixin md {
+  @media (min-width: #{$screen-md}) {
+    @content;
+  }
+}
+
+// Large devices
+@mixin lg {
+  @media (min-width: #{$screen-lg}) {
+    @content;
+  }
+}
+
+// Extra large devices
+@mixin xl {
+  @media (min-width: #{$screen-xl}) {
+    @content;
+  }
+}
+
+// src/components/layout.tsx
+.layout-main-container {
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 0 1.0875rem 1.45rem;
+}
+
+.layout-menu-items {
+  & a, h6, h5 {
+    color: $headerText;
+    text-decoration: none;
+    font-weight: normal;
+  }
+
+  & h6 {
+    margin-bottom: 0.5em;
+  }
+
+  & h5, h6:last-of-type {
+    margin-bottom: 1em;
+  }
+}
+
+// src/components/header.tsx
+.header-root {
+  position: sticky;
+  background: $mainBackground;
+  top: 0;
+  @include md {
+    margin-bottom: 1.45rem;
+  }
+  // [theme.breakpoints.up('md')]: {
+  //   marginBottom: '1.45rem',
+  // },
+}
+
+.header-div {
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 0.5rem 1.0875rem;
+  @include md {
+    border-bottom: 1px solid #eee;
+    padding: 1.45rem 1.0875rem;
+  }
+  // [theme.breakpoints.up('md')]: {
+  //   borderBottom: '1px solid #eee',
+  //   padding: '1.45rem 1.0875rem',
+  // },
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+}
+
+.header-content {
+  margin: 0;
+  align-self: center;
+  justify-content: space-between;
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.header-text {
+  color: $headerText;
+  text-decoration: none;
+  font-weight: initial;
+}
+
+.header-content-select {
+  & :not(:first-child) {
+    margin-left: 1rem;
+  }
+}
+
+// src/components/projectDetails.tsx
+.projectDetails-main-container {
+  display: grid;
+  grid-template-columns: minmax(300px, 450px);
+  max-width: 450px;
+  @include sm {
+    grid-template-columns: repeat(2, 450px);
+    max-width: 900px;
+  }
+  // [theme.breakpoints.down('sm')]: {
+  //   gridTemplateColumns: 'minmax(300px, 450px)',
+  //   maxWidth: '450px',
+  // },
+  background: $secondaryText;
+  position: absolute;
+  min-height: 30vh;
+  left: 0;
+  right: 0;
+  margin: 10vh auto;
+}
+
+.projectDetails-container {
+  display: 'grid';
+  grid-template-rows: auto auto 1fr auto;
+  & > h3, h6 {
+    color: $headerText;
+    text-decoration: none;
+    font-weight: normal;
+    margin: 0 5px 0.5em;
+  }
+
+  & > h6 {
+    color: $secondaryText;
+    font-weight: 600;
+  }
+
+  & > h3 {
+    color: $headerText;
+    margin-top: 0.5em;
+    @include sm {
+      margin-top: unset;
+    }
+    // [theme.breakpoints.down('sm')]: {
+    //   marginTop: '0.5em',
+    // }
+  }
+}
+
+.projectDetails-description {
+  background: $tertiaryBackground;
+  overflow: auto;
+  white-space: pre-wrap;
+  font-size: 0.8em;
+  font-family: inherit;
+  padding: 5px;
+  color: $headerText;
+}
+
+.projectDetails-button {
+  margin: 5px;
+  font-size: 0.75em;
+}
+
+// src/pages/about.tsx
+.pages-about-container {
+  text-align: center;
+  margin-top: 20vh;
+}
+
+.pages-about-text {
+  font-weight: normal;
+}
+
+.pages-about-project-link {
+  text-decoration: none;
+}
+
+// src/pages/projects.tsx
+.pages-projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 450px));
+  gap: 10px;
+  justify-content: space-around;
+}
+
+.pages-projects-image-container {
+  cursor: pointer;
+  border: 1px solid $secondaryBackground;
+  box-shadow: 3px 3px 3px 3px $tertiaryBackground;
+  border-radius: 7px;
 }
