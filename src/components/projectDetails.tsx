@@ -1,8 +1,10 @@
 import React from 'react';
 import { Project } from '../models/Project.interface';
 import { Button } from '@mui/material';
-import { Code as CodeIcon, Visibility as VisibilityIcon } from '@mui/icons-material';
-
+import {
+  Code as CodeIcon,
+  Visibility as VisibilityIcon,
+} from '@mui/icons-material';
 
 const ProjectDetails: React.FC<{ project: Project }> = props => {
   const { project } = props;

@@ -8,20 +8,14 @@ import Button from '@mui/material/Button';
  * Bio/Intro page
  */
 const About = () => {
-
   return (
     <div className="pages-about-container">
       {/* <h2 className={classes.aboutText}>Wen Jun Lee</h2> */}
-      <h4 className="pages-about-text">
-        Software Engineer based in Singapore
-      </h4>
+      <h4 className="pages-about-text">Software Engineer based in Singapore</h4>
       <h4 className="pages-about-text">
         Full Stack Development &#183; Web Data Visualization
       </h4>
-      <Link
-        to="/projects"
-        className="pages-about-container pages-about-text"
-      >
+      <Link to="/projects" className="pages-about-container pages-about-text">
         <Button variant="contained">View Projects</Button>
       </Link>
     </div>

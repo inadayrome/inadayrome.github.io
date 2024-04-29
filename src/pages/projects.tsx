@@ -4,7 +4,6 @@ import Layout from '../components/layout';
 import Modal from '@mui/material/Modal';
 import { ProjectList } from '../constants';
 
-
 /**
  * This page contains lists of projects developed
  */

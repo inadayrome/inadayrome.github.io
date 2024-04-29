@@ -12,7 +12,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 interface SEOProps {
   description?: string;
   lang?: string;
-  meta?: { property: string; content: string; }[];
+  meta?: { property: string; content: string }[];
   title: string;
 }
 
@@ -30,19 +30,17 @@ const SEO: React.FC<SEOProps> = ({
   title = '',
   meta,
 }) => {
-  const { site }: { site: SiteQuery } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-          }
+  const { site }: { site: SiteQuery } = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          description
+          author
         }
       }
-    `
-  );
+    }
+  `);
 
   const metaDescription = description || site.siteMetadata.description;
 

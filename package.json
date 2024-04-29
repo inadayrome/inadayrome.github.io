@@ -56,7 +56,6 @@
     "clean": "gatsby clean",
     "test": "jest",
     "test-changes": "jest -- -u",
-    "deploy": "gatsby build && gh-pages -d public -b gh-pages",
     "lint": "eslint --ignore-path .gitignore .",
     "prepare": "husky install"
   },

@@ -15,7 +15,9 @@ export const CoronaD3Image = () => {
     }
   `);
 
-  return <Img alt="" image={data.placeholderImage.childImageSharp.gatsbyImageData} />;
+  return (
+    <Img alt="" image={data.placeholderImage.childImageSharp.gatsbyImageData} />
+  );
 };
 
 const CoronaD3 = () => {

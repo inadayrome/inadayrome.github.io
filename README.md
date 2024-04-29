@@ -30,12 +30,13 @@ Ideas for data visualization:
 
 Page originally built through gatsby-default-starter
 
-
 ## Development
+
 - run `npm install` to install all dependencies
 - run `npm run develop` to start development server
 
 // TODO:
+
 1. Restore linter (eslint?)
 2. Restore UTs (Jest)
 3. Add Dockerfile / docker-compose
