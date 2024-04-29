@@ -41,7 +41,7 @@ module.exports = {
     // interface start with capital I
     '@typescript-eslint/interface-name-prefix': 'off',
     // allow "any" as type
-    '@typescript-eslint/no-explicit-any': 'off',
+    // '@typescript-eslint/no-explicit-any': 'off',
     // allow @ts-ignore for testing purposes
     '@typescript-eslint/ban-ts-ignore': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
