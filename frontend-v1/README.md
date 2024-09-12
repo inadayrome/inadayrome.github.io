@@ -37,7 +37,8 @@ Page originally built through gatsby-default-starter
 
 // TODO:
 
-1. Restore linter (eslint?)
-2. Restore UTs (Jest)
-3. Add Dockerfile / docker-compose
-4. Add CI, hooks for UTs
+1. ~~Restore linter (eslint?)~~
+2. ~~Restore UTs (Jest)~~
+3. ~~Add Dockerfile / docker-compose~~
+4. ~~Add CI, hooks for UTs~~
+5. Add test coverage
