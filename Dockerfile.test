@@ -1,8 +1,0 @@
-FROM node:20.12.2-bullseye-slim
-# Set working directory
-WORKDIR /app
-# Copy all files from current directory to working dir in image
-COPY . .
-# install node modules and build assets
-RUN npm install
-RUN npm run test
