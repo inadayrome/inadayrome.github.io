@@ -8,7 +8,7 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches:
-      - main
+      - master
       - 'bigfeature/**'
       - 'feature/*'
       - 'hotfix/**'
@@ -81,7 +81,7 @@ jobs:
 
   # Deployment job
   deploy:
-    if: ${{ github.ref == 'refs/heads/main' && github.event_name == 'push' }}
+    if: ${{ github.ref == 'refs/heads/master' && github.event_name == 'push' }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
