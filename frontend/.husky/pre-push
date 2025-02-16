@@ -1,4 +1,3 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-
+# see https://typicode.github.io/husky/how-to.html#project-not-in-git-root-directory
+cd frontend
 pnpm lint && pnpm test

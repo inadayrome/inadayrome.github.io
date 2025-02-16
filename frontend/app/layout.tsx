@@ -7,8 +7,8 @@ import {
   NavigationMenuList,
 } from '@/components/ui/navigation-menu';
 import Link from 'next/link';
-import { GITHUB_URL, LINKEDIN_URL } from '@/lib/utils';
-import { GitHubLogoIcon, LinkedInLogoIcon } from '@radix-ui/react-icons';
+import { GITHUB_URL } from '@/lib/utils';
+import { GitHubLogoIcon, HomeIcon } from '@radix-ui/react-icons';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -41,7 +41,7 @@ export default function RootLayout({
             <NavigationMenuList>
               <NavigationMenuItem>
                 <Link href='/' passHref>
-                  inadayrome
+                  <HomeIcon />
                 </Link>
               </NavigationMenuItem>
             </NavigationMenuList>
@@ -57,11 +57,6 @@ export default function RootLayout({
               <NavigationMenuItem>
                 <Link href='/about' passHref>
                   About
-                </Link>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <Link href={LINKEDIN_URL}>
-                  <LinkedInLogoIcon />
                 </Link>
               </NavigationMenuItem>
               <NavigationMenuItem>
